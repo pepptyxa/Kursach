@@ -119,7 +119,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\BookingContext.cs" />
     <Compile Include="Classes\Common\DBConnection.cs" />
+    <Compile Include="Classes\RoomContext.cs" />
+    <Compile Include="Classes\UserContext.cs" />
+    <Compile Include="Interfaces\IBooking.cs" />
+    <Compile Include="Interfaces\IRoom.cs" />
+    <Compile Include="Interfaces\IUser.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -158,7 +164,6 @@
   <ItemGroup>
     <Folder Include="Elements\" />
     <Folder Include="Images\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
