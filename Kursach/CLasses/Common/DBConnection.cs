@@ -14,7 +14,13 @@ namespace Kursach.Classes.Common
         public static MySqlDataReader Query(string query, MySqlConnection connection, params MySqlParameter[] parameters) 
         {
             var command = new MySqlCommand(query, connection);
-            command.Parameters.Add(parameters);
+            if (parameters != null && parameters.Length > 0)
+            {
+                foreach (var parameter in parameters)
+                {
+                    command.Parameters.Add(parameter);
+                }
+            }
             return command.ExecuteReader();
         }
         public static void CloseConnection(MySqlConnection connection) 

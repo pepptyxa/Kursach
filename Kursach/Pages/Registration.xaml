@@ -5,10 +5,49 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Kursach.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Registration">
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Регистрация">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <StackPanel Width="400" VerticalAlignment="Center">
+            <TextBlock Text="Регистрация" FontSize="28" FontWeight="Bold" Foreground="#9C27B0" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <TextBlock Text="Фамилия:" Margin="0,5,0,2" FontWeight="Medium"/>
+            <TextBox x:Name="tbSurname" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" />
+            <TextBlock x:Name="tbSurnameError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+            <TextBlock Text="Имя:" Margin="0,5,0,2" FontWeight="Medium"/>
+            <TextBox x:Name="tbName" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" />
+            <TextBlock x:Name="tbNameError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+            <TextBlock Text="Отчество (при наличии):" Margin="0,5,0,2" FontWeight="Medium"/>
+            <TextBox x:Name="tbPatronomyc" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" />
+            <TextBlock x:Name="tbPatronomycError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+            <TextBlock Text="Номер телефона:" Margin="0,5,0,2" FontWeight="Medium"/>
+            <TextBox x:Name="tbPhoneNumber" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" />
+            <TextBlock x:Name="tbPhoneNumberError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+            <TextBlock Text="Пароль:" Margin="0,5,0,2" FontWeight="Medium"/>
+            <PasswordBox x:Name="pbPassword" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" />
+            <TextBlock x:Name="pbPasswordError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+            <TextBlock Text="Подтверждение пароля:" Margin="0,5,0,2" FontWeight="Medium"/>
+            <PasswordBox x:Name="pbConfirmPassword" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" />
+            <TextBlock x:Name="pbConfirmPasswordError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button x:Name="btnRegister" Content="Зарегистрироваться" Width="180" Height="40" 
+                        Background="#9C27B0" Foreground="White" FontSize="14" FontWeight="Medium" Margin="0,0,10,0"
+                        Click="RegisterClick"/>
+                <Button x:Name="btnCancel" Content="Отмена" Width="120" Height="40" 
+                        Background="#E0E0E0" Foreground="Black" FontSize="14" FontWeight="Medium"
+                        Click="CancelClick"/>
+            </StackPanel>
+
+            <TextBlock Margin="0,15,0,0" HorizontalAlignment="Center">
+                <Hyperlink x:Name="linkToLogin" Click="ToLoginClick">Уже есть аккаунт? Войти</Hyperlink>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Page>

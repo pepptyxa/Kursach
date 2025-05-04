@@ -14,6 +14,7 @@ namespace Kursach
         public MainWindow()
         {
             InitializeComponent();
+            OpenPage(new Pages.Registration());
             init = this;
         }
         public void OpenPage(Page Page)

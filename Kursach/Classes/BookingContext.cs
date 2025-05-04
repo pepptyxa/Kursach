@@ -12,7 +12,7 @@ namespace Kursach.Classes
         {
             List<BookingContext> allBookings = new List<BookingContext>();
             MySqlConnection connection = DBConnection.Connection();
-            MySqlDataReader dataBookings = DBConnection.Query("SELECT * FROM \"bookings\"", connection);
+            MySqlDataReader dataBookings = DBConnection.Query("SELECT * FROM `bookings`", connection);
             while (dataBookings.Read())
             {
                 BookingContext booking = new BookingContext
@@ -34,14 +34,14 @@ namespace Kursach.Classes
             MySqlConnection connection = DBConnection.Connection();
             if (Update)
             {
-                DBConnection.Query("UPDATE \"bookings\" " +
+                DBConnection.Query("UPDATE `bookings` " +
                                               "SET " +
-                                                "\"idUser\" = @idUser, " +
-                                                "\"idRoom\" = @idRoom, " +
-                                                "\"dateEntry\" = @dateEntry, " +
-                                                "\"dateDeparture\" = @dateDeparture, " +
-                                                "\"cost\" = @cost " +
-                                              "WHERE \"id\" = @id", connection,
+                                                "`idUser` = @idUser, " +
+                                                "`idRoom` = @idRoom, " +
+                                                "`dateEntry` = @dateEntry, " +
+                                                "`dateDeparture` = @dateDeparture, " +
+                                                "`cost` = @cost " +
+                                              "WHERE `id` = @id", connection,
                         new MySqlParameter("@idUser", this.IdUser),
                         new MySqlParameter("@idRoom", this.IdRoom),
                         new MySqlParameter("@dateEntry", this.DateEntry),
@@ -51,8 +51,8 @@ namespace Kursach.Classes
             }
             else
             {
-                DBConnection.Query("INSERT INTO \"users\" " +
-                          "(\"idUser\", \"idRoom\", \"dateEntry\", \"dateDeparture\", \"cost\") " +
+                DBConnection.Query("INSERT INTO `bookings` " +
+                          "(`idUser`, `idRoom`, `dateEntry`, `dateDeparture`, `cost`) " +
                           "VALUES (@idUser, @idRoom, @dateEntry, @dateDeparture, @cost)", connection,
                                     new MySqlParameter("@idUser", this.IdUser),
                                     new MySqlParameter("@idRoom", this.IdRoom),
@@ -65,7 +65,7 @@ namespace Kursach.Classes
         public void Delete()
         {
             MySqlConnection connection = DBConnection.Connection();
-            DBConnection.Query("DELETE FROM \"bookings\" WHERE \"id\" = @id", connection, new MySqlParameter("@id", this.Id));
+            DBConnection.Query("DELETE FROM `bookings` WHERE `id` = @id", connection, new MySqlParameter("@id", this.Id));
         }
     }
 }

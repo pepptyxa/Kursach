@@ -12,7 +12,7 @@ namespace Kursach.Classes
         {
             List<RoomContext> allRooms = new List<RoomContext>();
             MySqlConnection connection = DBConnection.Connection();
-            MySqlDataReader dataRooms = DBConnection.Query("SELECT * FROM \"rooms\"", connection);
+            MySqlDataReader dataRooms = DBConnection.Query("SELECT * FROM `rooms`", connection);
             while (dataRooms.Read())
             {
                 RoomContext room = new RoomContext
@@ -32,13 +32,13 @@ namespace Kursach.Classes
             MySqlConnection connection = DBConnection.Connection();
             if (Update)
             {
-                DBConnection.Query("UPDATE \"rooms\" " +
+                DBConnection.Query("UPDATE `rooms` " +
                                               "SET " +
-                                                "\"name\" = @name, " +
-                                                "\"numSeats\" = @numSeats, " +
-                                                "\"price\" = @price, " +
-                                                "\"status\" = @status " +
-                                              "WHERE \"id\" = @id", connection,
+                                                "`name` = @name, " +
+                                                "`numSeats` = @numSeats, " +
+                                                "`price` = @price, " +
+                                                "`status` = @status " +
+                                              "WHERE `id` = @id", connection,
                         new MySqlParameter("@name", this.Name),
                         new MySqlParameter("@numSeats", this.NumSeats),
                         new MySqlParameter("@price", this.Price),
@@ -47,8 +47,8 @@ namespace Kursach.Classes
             }
             else
             {
-                DBConnection.Query("INSERT INTO \"rooms\" " +
-                          "(\"name\", \"numSeats\", \"price\", \"status\") " +
+                DBConnection.Query("INSERT INTO `rooms` " +
+                          "(`name`, `numSeats`, `price`, `status`) " +
                           "VALUES (@name, @numSeats, @price, @status)", connection,
                                     new MySqlParameter("@name", this.Name),
                                     new MySqlParameter("@numSeats", this.NumSeats),
@@ -60,7 +60,7 @@ namespace Kursach.Classes
         public void Delete()
         {
             MySqlConnection connection = DBConnection.Connection();
-            DBConnection.Query("DELETE FROM \"rooms\" WHERE \"id\" = @id", connection, new MySqlParameter("@id", this.Id));
+            DBConnection.Query("DELETE FROM `rooms` WHERE `id` = @id", connection, new MySqlParameter("@id", this.Id));
         }
     }
 }

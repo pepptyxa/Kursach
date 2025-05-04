@@ -12,7 +12,7 @@ namespace Kursach.Classes
         {
             List<UserContext> allUsers = new List<UserContext>();
             MySqlConnection connection = DBConnection.Connection();
-            MySqlDataReader dataUsers = DBConnection.Query("SELECT * FROM \"users\"",connection);
+            MySqlDataReader dataUsers = DBConnection.Query("SELECT * FROM `users`",connection);
             while (dataUsers.Read())
             {
                 UserContext user = new UserContext
@@ -34,15 +34,15 @@ namespace Kursach.Classes
             MySqlConnection connection = DBConnection.Connection();
             if (Update)
             {
-                DBConnection.Query("UPDATE \"users\" " +
+                DBConnection.Query("UPDATE `users` " +
                                               "SET " +
-                                                "\"surname\" = @surname, " +
-                                                "\"name\" = @name, " +
-                                                "\"patronomyc\" = @patronomyc, " +
-                                                "\"password\" = @password, " +
-                                                "\"phoneNumber\" = @phoneNumber, " +
-                                                "\"role\" = @role " +
-                                              "WHERE \"id\" = @id", connection,
+                                                "`surname` = @surname, " +
+                                                "`name` = @name, " +
+                                                "`patronomyc` = @patronomyc, " +
+                                                "`password` = @password, " +
+                                                "`phoneNumber` = @phoneNumber, " +
+                                                "`role` = @role " +
+                                              "WHERE `id` = @id", connection,
                         new MySqlParameter("@surname", this.Surname),
                         new MySqlParameter("@name", this.Name),
                         new MySqlParameter("@patronomyc", this.Patronomyc),
@@ -53,8 +53,8 @@ namespace Kursach.Classes
             }
             else
             {
-                DBConnection.Query("INSERT INTO \"users\" " +
-                          "(\"surname\", \"name\", \"patronomyc\", \"password\", \"phoneNumber\", \"role\") " +
+                DBConnection.Query("INSERT INTO `users` " +
+                          "(`surname`, `name`, `patronomyc`, `password`, `phoneNumber`, `role`) " +
                           "VALUES (@surname, @name, @patronomyc, @password, @phoneNumber, @role)", connection,
                                     new MySqlParameter("@surname", this.Surname),
                                     new MySqlParameter("@name", this.Name),
@@ -67,7 +67,7 @@ namespace Kursach.Classes
         public void Delete() 
         {
             MySqlConnection connection = DBConnection.Connection();
-            DBConnection.Query("DELETE FROM \"users\" WHERE \"id\" = @id", connection, new MySqlParameter("@id", this.Id));
+            DBConnection.Query("DELETE FROM `users` WHERE `id` = @id", connection, new MySqlParameter("@id", this.Id));
         }
     }
 }
