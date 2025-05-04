@@ -111,6 +111,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Elements\BookingItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Elements\RoomItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Elements\UserItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -123,6 +135,15 @@
     <Compile Include="Classes\Common\DBConnection.cs" />
     <Compile Include="Classes\RoomContext.cs" />
     <Compile Include="Classes\UserContext.cs" />
+    <Compile Include="Elements\BookingItem.xaml.cs">
+      <DependentUpon>BookingItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\RoomItem.xaml.cs">
+      <DependentUpon>RoomItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\UserItem.xaml.cs">
+      <DependentUpon>UserItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IBooking.cs" />
     <Compile Include="Interfaces\IRoom.cs" />
     <Compile Include="Interfaces\IUser.cs" />
@@ -130,11 +151,102 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddBookings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddRooms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Authorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AvailableRooms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Bookings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainPageAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainPageUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Profile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RentRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Rooms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Users.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Booking.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Pages\AddBookings.xaml.cs">
+      <DependentUpon>AddBookings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddRooms.xaml.cs">
+      <DependentUpon>AddRooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddUsers.xaml.cs">
+      <DependentUpon>AddUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Authorization.xaml.cs">
+      <DependentUpon>Authorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AvailableRooms.xaml.cs">
+      <DependentUpon>AvailableRooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bookings.xaml.cs">
+      <DependentUpon>Bookings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPageAdmin.xaml.cs">
+      <DependentUpon>MainPageAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPageUser.xaml.cs">
+      <DependentUpon>MainPageUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RentRoom.xaml.cs">
+      <DependentUpon>RentRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Rooms.xaml.cs">
+      <DependentUpon>Rooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Users.xaml.cs">
+      <DependentUpon>Users.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -162,9 +274,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Elements\" />
     <Folder Include="Images\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Kursach.Elements.BookingItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Kursach.Elements"
+             mc:Ignorable="d" 
+             Height="180" Width="600">
+    <Border BorderBrush="#007ACC" BorderThickness="1" CornerRadius="8" Margin="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="10,10,0,0">
+                <Label x:Name="lId" Content="Код: " FontWeight="Bold" FontSize="14"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="10,5,0,0">
+                <Label x:Name="lIdUser" Content="Код пользователя: " FontSize="12"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" Margin="10,5,0,0">
+                <Label x:Name="lIdRoom" Content="Код комнаты: " FontSize="12"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" Margin="10,5,0,0">
+                <Label x:Name="lDateEntry" Content="Дата въезда: " FontSize="12"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" Margin="10,5,0,10">
+                <Label x:Name="lDateDeparture" Content="Дата выезда: " FontSize="12"/>
+                <Label Content=" - " FontSize="12"/>
+                <Label x:Name="lCost" Content="Стоимость: " FontSize="12" FontWeight="Bold"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="0" Grid.RowSpan="5" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,0">
+                <Button Content="Редактировать" Width="120" Height="30" Margin="0,0,0,10" Background="#007ACC" Foreground="White" Click="Edit"/>
+                <Button Content="Удалить" Width="120" Height="30" Background="#E74C3C" Foreground="White" Click="Delete"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
