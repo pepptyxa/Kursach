@@ -11,10 +11,11 @@ namespace Kursach
         public List<UserContext> AllUsers = new UserContext().AllUsers();
         public List<RoomContext> AllRooms = new RoomContext().AllRooms();
         public List<BookingContext> AllBookings = new BookingContext().AllBookings();
+        public UserContext CurrentUser { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            OpenPage(new Pages.Registration());
+            OpenPage(new Pages.Authorization());
             init = this;
         }
         public void OpenPage(Page Page)
