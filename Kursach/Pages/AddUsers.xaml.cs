@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Kursach.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для AddUsers.xaml
-    /// </summary>
     public partial class AddUsers : Page
     {
         public AddUsers()

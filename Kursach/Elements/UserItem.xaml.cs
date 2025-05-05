@@ -20,7 +20,7 @@ namespace Kursach.Elements
         }
         private void Edit(object sender, System.Windows.RoutedEventArgs e)
         {
-            MainWindow.init.OpenPage(new Pages.AddUsers());
+            MainWindow.init.OpenPage(new Pages.AddUsers(User));
         }
 
         private void Delete(object sender, System.Windows.RoutedEventArgs e)

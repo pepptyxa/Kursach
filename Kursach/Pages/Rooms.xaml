@@ -5,10 +5,75 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Kursach.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Rooms">
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Управление номерами">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="20,20,20,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <TextBlock Text="Номера отеля" FontSize="24" FontWeight="Bold" Foreground="#4CAF50"/>
+                <TextBlock Text="Управление номерами отеля" FontSize="14" Foreground="#616161" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <Button Grid.Column="1" Content="Добавить номер" Width="180" Height="35" 
+                    Background="#4CAF50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontWeight="SemiBold"
+                    BorderThickness="0" Click="AddRoomClick"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="20,0,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="tbSearch" Grid.Column="0" Margin="0,0,10,0" Height="35" 
+                         Padding="10,0" VerticalContentAlignment="Center"
+                         FontSize="14" TextChanged="Search_TextChanged"
+                         BorderBrush="#DDDDDD" BorderThickness="1"
+                         Foreground="#616161"/>
+
+                <Button x:Name="btnSearch" Grid.Column="1" Content="Поиск" Width="100" Height="35" 
+                        Background="#C8E6C9" Foreground="#4CAF50" FontWeight="SemiBold"
+                        BorderThickness="0" Click="Search_Click" Margin="0,0,10,0"/>
+
+                <ComboBox x:Name="cbStatus" Grid.Column="2" Width="120" Height="30" 
+                          SelectedIndex="0" SelectionChanged="Status_SelectionChanged"
+                          Margin="0,0,10,0">
+                    <ComboBoxItem Content="Все номера"/>
+                    <ComboBoxItem Content="Доступные"/>
+                    <ComboBoxItem Content="Занятые"/>
+                </ComboBox>
+
+                <Button x:Name="btnClearFilters" Grid.Column="3" Content="Сбросить" Width="100" Height="35" 
+                        Background="#E8F5E9" Foreground="#4CAF50" FontWeight="SemiBold"
+                        BorderThickness="0" Click="ClearFilters_Click"/>
+            </Grid>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel x:Name="parent" Orientation="Vertical" Margin="0,10,0,0">
+                    <TextBlock x:Name="tbEmptyMessage" Text="Нет данных для отображения" 
+                               FontSize="16" Foreground="#9E9E9E" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" Margin="0,50,0,0" Visibility="Collapsed"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Page>
