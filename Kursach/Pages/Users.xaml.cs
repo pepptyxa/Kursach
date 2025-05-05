@@ -20,6 +20,7 @@ namespace Kursach.Pages
         {
             parent.Children.Clear();
             parent.Children.Add(tbEmptyMessage);
+            MainWindow.init.AllUsers = new UserContext().AllUsers();
             allUsers = MainWindow.init.AllUsers;
             ApplyFilters();
         }
@@ -91,6 +92,11 @@ namespace Kursach.Pages
             {
                 tbEmptyMessage.Visibility = Visibility.Visible;
             }
+        }
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            MainWindow.init.OpenPage(new MainPageAdmin());
         }
     }
 }

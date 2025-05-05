@@ -28,6 +28,9 @@
             <Button Grid.Column="1" Content="Добавить пользователя" Width="180" Height="35" 
                     Background="#9C27B0" Foreground="White" FontWeight="SemiBold"
                     BorderThickness="0" Click="AddUserClick"/>
+            <Button Content="Назад" Width="120" Height="35" 
+                    Background="#9C27B0" Foreground="White" FontWeight="SemiBold"
+                    BorderThickness="0" Click="Back" Margin="455,11,5,10"/>
         </Grid>
 
         <Grid Grid.Row="1" Margin="20,0,20,20">

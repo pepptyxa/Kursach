@@ -28,6 +28,9 @@
             <Button Grid.Column="1" Content="Добавить номер" Width="180" Height="35" 
                     Background="#4CAF50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontWeight="SemiBold"
                     BorderThickness="0" Click="AddRoomClick"/>
+            <Button Content="Назад" Width="120" Height="35" 
+                    Background="#4CAF50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontWeight="SemiBold"
+                    BorderThickness="0" Click="Back" Margin="455,11,5,10"/>
         </Grid>
 
         <Grid Grid.Row="1" Margin="20,0,20,20">
@@ -35,7 +38,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
             <Grid Grid.Row="0" Margin="0,0,0,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

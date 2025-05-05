@@ -21,7 +21,7 @@ namespace Kursach.Elements
         }
         private void Edit(object sender, System.Windows.RoutedEventArgs e)
         {
-            MainWindow.init.OpenPage(new Pages.AddBookings());
+            MainWindow.init.OpenPage(new Pages.AddBookings(Booking));
         }
 
         private void Delete(object sender, System.Windows.RoutedEventArgs e)

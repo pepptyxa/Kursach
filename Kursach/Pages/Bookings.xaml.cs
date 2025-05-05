@@ -20,7 +20,7 @@ namespace Kursach.Pages
         {
             parent.Children.Clear();
             parent.Children.Add(tbEmptyMessage);
-
+            MainWindow.init.AllBookings = new BookingContext().AllBookings();
             allBookings = MainWindow.init.AllBookings;
 
             if (allBookings != null && allBookings.Count > 0)
@@ -93,6 +93,11 @@ namespace Kursach.Pages
             {
                 tbEmptyMessage.Visibility = Visibility.Visible;
             }
+        }
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            MainWindow.init.OpenPage(new MainPageAdmin());
         }
     }
 }

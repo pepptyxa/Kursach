@@ -6,9 +6,56 @@
       xmlns:local="clr-namespace:Kursach.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddBookings">
+      Title="Добавление/Редактирование Бронирования">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20,20,20,10" Orientation="Horizontal">
+            <Button x:Name="btnBack" Content="Вернуться" Width="120" Height="35" 
+                    Background="#E3F2FD" Foreground="#2196F3" FontWeight="SemiBold"
+                    BorderThickness="0" Click="BtnBack_Click"/>
+            <TextBlock x:Name="tbPageTitle" Text="Добавление бронирования" FontSize="24" FontWeight="Bold" Foreground="#2196F3" Margin="20,0,0,0"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="20,0,20,20">
+            <StackPanel Width="400" HorizontalAlignment="Left">
+                <TextBlock Text="Выберите пользователя:" Margin="0,5,0,2" FontWeight="Medium"/>
+                <ComboBox x:Name="cbUsers" Height="30" Padding="5" FontSize="14" BorderBrush="#2196F3" 
+                          DisplayMemberPath="DisplayName" SelectionChanged="CbUsers_SelectionChanged"/>
+                <TextBlock x:Name="tbUsersError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+                <TextBlock Text="Выберите номер:" Margin="0,5,0,2" FontWeight="Medium"/>
+                <ComboBox x:Name="cbRooms" Height="30" Padding="5" FontSize="14" BorderBrush="#2196F3" 
+                          DisplayMemberPath="DisplayName" SelectionChanged="CbRooms_SelectionChanged"/>
+                <TextBlock x:Name="tbRoomsError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+                <TextBlock Text="Дата заезда:" Margin="0,5,0,2" FontWeight="Medium"/>
+                <DatePicker x:Name="dpDateEntry" Height="30" BorderBrush="#2196F3" 
+                           SelectedDateChanged="DpDateEntry_SelectedDateChanged"/>
+                <TextBlock x:Name="tbDateEntryError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+                <TextBlock Text="Дата выезда:" Margin="0,5,0,2" FontWeight="Medium"/>
+                <DatePicker x:Name="dpDateDeparture" Height="30" BorderBrush="#2196F3" 
+                           SelectedDateChanged="DpDateDeparture_SelectedDateChanged"/>
+                <TextBlock x:Name="tbDateDepartureError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+                <TextBlock Text="Стоимость (руб.):" Margin="0,5,0,2" FontWeight="Medium"/>
+                <TextBox x:Name="tbCost" Height="30" Padding="5" FontSize="14" BorderBrush="#2196F3" IsReadOnly="True" />
+                <TextBlock x:Name="tbCostError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Button x:Name="btnSave" Content="Сохранить" Width="150" Height="40" 
+                            Background="#2196F3" Foreground="White" FontSize="14" FontWeight="SemiBold" Margin="0,0,10,0"
+                            Click="BtnSave_Click"/>
+                    <Button x:Name="btnCancel" Content="Отмена" Width="120" Height="40" 
+                            Background="#F44336" Foreground="White" FontSize="14" FontWeight="Medium"
+                            Click="BtnCancel_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

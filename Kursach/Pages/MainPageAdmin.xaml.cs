@@ -52,7 +52,7 @@ namespace Kursach.Pages
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog
                 {
-                    Filter = "Excel файлы (*.csv)|*.csv",
+                    Filter = "Excel файлы (*.xlsx)|*.xlsx",
                     FileName = "Отчет_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm")
                 };
 
