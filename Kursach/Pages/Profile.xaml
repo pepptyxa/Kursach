@@ -5,10 +5,40 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Kursach.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Profile">
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Профиль пользователя">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <StackPanel Width="400" VerticalAlignment="Center">
+            <TextBlock Text="Профиль пользователя" FontSize="28" FontWeight="Bold" Foreground="#9C27B0" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <TextBlock Text="ФИО:" Margin="0,5,0,2" FontWeight="Medium"/>
+            <TextBox x:Name="tbFullName" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" IsReadOnly="True" />
+
+            <TextBlock Text="Номер телефона:" Margin="0,15,0,2" FontWeight="Medium"/>
+            <TextBox x:Name="tbPhoneNumber" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" />
+            <TextBlock x:Name="tbPhoneNumberError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+            <TextBlock Text="Пароль:" Margin="0,15,0,2" FontWeight="Medium"/>
+            <PasswordBox x:Name="pbPassword" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" />
+            <TextBlock x:Name="pbPasswordError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+            <TextBlock Text="Подтверждение пароля:" Margin="0,15,0,2" FontWeight="Medium"/>
+            <PasswordBox x:Name="pbConfirmPassword" Height="30" Padding="5" FontSize="14" BorderBrush="#9C27B0" />
+            <TextBlock x:Name="pbConfirmPasswordError" Visibility="Collapsed" Foreground="Red" FontSize="12" Margin="0,2,0,5"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button x:Name="btnSave" Content="Сохранить изменения" Width="180" Height="40" 
+                        Background="#9C27B0" Foreground="White" FontSize="14" FontWeight="Medium" Margin="0,0,10,0"
+                        Click="SaveClick"/>
+                <Button x:Name="btnCancel" Content="Отмена" Width="120" Height="40" 
+                        Background="PaleVioletRed" Foreground="Black" FontSize="14" FontWeight="Medium"
+                        Click="CancelClick"/>
+            </StackPanel>
+
+            <TextBlock x:Name="tbSuccessMessage" Visibility="Collapsed" Text="Данные успешно обновлены!" 
+                       Foreground="Green" FontSize="14" FontWeight="Medium" 
+                       HorizontalAlignment="Center" Margin="0,15,0,0"/>
+        </StackPanel>
     </Grid>
 </Page>

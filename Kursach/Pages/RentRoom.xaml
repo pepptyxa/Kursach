@@ -5,10 +5,119 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Kursach.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="RentRoom">
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Бронирование номера">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="20,20,20,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <TextBlock Text="Бронирование номера" FontSize="24" FontWeight="Bold" Foreground="#2196F3"/>
+                <TextBlock Text="Заполните информацию для бронирования" FontSize="14" Foreground="#616161" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <Button Grid.Column="1" Content="Назад" Width="120" Height="35" 
+                    Background="#2196F3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontWeight="SemiBold"
+                    BorderThickness="0" Click="BackClick"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="20,0,20,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" BorderBrush="#2196F3" BorderThickness="1" CornerRadius="8" Margin="0,0,10,0" Padding="15">
+                <StackPanel>
+                    <TextBlock Text="Информация о номере" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
+
+                    <StackPanel x:Name="roomInfoPanel" Visibility="Visible">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Номер:" FontWeight="SemiBold" Margin="0,0,10,10"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="tbRoomName" Text="Не выбран" Margin="0,0,0,10"/>
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Количество мест:" FontWeight="SemiBold" Margin="0,0,10,10"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="tbRoomNumSeats" Text="0" Margin="0,0,0,10"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Цена за ночь:" FontWeight="SemiBold" Margin="0,0,10,10"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="tbRoomPrice" Text="0 руб." Margin="0,0,0,10"/>
+
+                            <TextBlock Grid.Row="3" Grid.Column="0" Text="Статус:" FontWeight="SemiBold" Margin="0,0,10,10"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="tbRoomStatus" Text="Неизвестно" Margin="0,0,0,10" Foreground="Green"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <TextBlock x:Name="tbNoRoomSelected" Text="Номер не выбран. Выберите номер из списка доступных номеров." 
+                               Visibility="Collapsed" TextWrapping="Wrap" Margin="0,10,0,0" Foreground="#616161"/>
+
+                    <Button x:Name="btnChooseRoom" Content="Выбрать номер" Margin="0,15,0,0" Height="35" 
+                            Background="#2196F3" Foreground="White" Click="ChooseRoomClick"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" BorderBrush="#2196F3" BorderThickness="1" CornerRadius="8" Margin="10,0,0,0" Padding="15">
+                <StackPanel>
+                    <TextBlock Text="Детали бронирования" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
+
+                    <TextBlock Text="Дата заезда:" Margin="0,5,0,2" FontWeight="Medium"/>
+                    <DatePicker x:Name="dpDateEntry" Margin="0,0,0,10" Height="30" SelectedDateChanged="DateEntryChanged"/>
+
+                    <TextBlock Text="Дата выезда:" Margin="0,5,0,2" FontWeight="Medium"/>
+                    <DatePicker x:Name="dpDateDeparture" Margin="0,0,0,10" Height="30" SelectedDateChanged="DateDepartureChanged"/>
+
+                    <TextBlock Text="Расчет стоимости:" Margin="0,10,0,5" FontWeight="Medium"/>
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Количество дней:"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" x:Name="tbDaysCount" Text="0"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Цена за ночь:"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="tbNightPrice" Text="0 руб."/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Итоговая стоимость:" FontWeight="Bold"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" x:Name="tbTotalCost" Text="0 руб." FontWeight="Bold" Foreground="#2196F3"/>
+                    </Grid>
+
+                    <TextBlock x:Name="tbError" Visibility="Collapsed" Text="Ошибка" Foreground="Red" Margin="0,5,0,10"/>
+
+                    <Button x:Name="btnBook" Content="Забронировать" Height="40" Margin="0,10,0,0"
+                            Background="#2196F3" Foreground="White" FontWeight="SemiBold"
+                            Click="BookRoomClick"/>
+
+                    <TextBlock x:Name="tbSuccess" Visibility="Collapsed" Text="Номер успешно забронирован!" 
+                               Foreground="Green" FontWeight="Medium" HorizontalAlignment="Center" 
+                               Margin="0,10,0,0"/>
+                </StackPanel>
+            </Border>
+        </Grid>
     </Grid>
 </Page>

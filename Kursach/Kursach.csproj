@@ -111,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Elements\AvailableRoomItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Elements\BookingItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +139,9 @@
     <Compile Include="Classes\Common\DBConnection.cs" />
     <Compile Include="Classes\RoomContext.cs" />
     <Compile Include="Classes\UserContext.cs" />
+    <Compile Include="Elements\AvailableRoomItem.xaml.cs">
+      <DependentUpon>AvailableRoomItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Elements\BookingItem.xaml.cs">
       <DependentUpon>BookingItem.xaml</DependentUpon>
     </Compile>
